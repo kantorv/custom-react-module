@@ -1,0 +1,1 @@
+export { Main as CustomComponent } from './component/Main'

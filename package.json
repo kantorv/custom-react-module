@@ -1,0 +1,52 @@
+{
+  "name": "custom-react-module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kantorv/custom-react-module.git",
+  "author": "Valentin Kantor <kantorvv@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/",
+    "start": "npm run build -- --watch",
+    "type-check": "tsc"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "treeshake": true,
+    "sourcemap": "inline",
+    "minify": true,
+    "clean": true,
+    "dts": true,
+    "splitting": false,
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "external": [
+      "react"
+    ],
+    "injectStyle": false
+  },
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
